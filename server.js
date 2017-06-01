@@ -14,6 +14,12 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
+//listening
 app.listen(port, function() {
   console.log('server up on port', port);
+});
+
+//base url
+app.get('/', function(req, res) {
+  res.sendFile(path.resolve('views/index.html'));
 });
