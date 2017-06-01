@@ -2,6 +2,7 @@ $(document).ready(function() {
   console.log('JSJQ');
   getPets();
   $('#registerButton').on('click', registerButton);
+  $('#addPetButton').on('click', addPetButton);
 });
 
 //register button click function
@@ -14,12 +15,37 @@ var registerButton = function() {
   //send requestObject
   $.ajax({
     type: 'POST',
-    url: '/pets',
+    url: '/owner',
     data: requestObject,
     success: getPets
   });
-
+  $('#firstName').val('');
+  $('#lastName').val('');
 }; //end registerButton
+
+var addPetButton = function() {
+  //create object to send
+  //includes owner name for reference
+  var requestObject = {
+    ownerName: $('#ownerName').val(),
+    petName: $('#petName').val(),
+    color: $('#color').val(),
+    breed: $('#breed').val()
+  };
+  console.log(requestObject);
+  //send object - post
+  $.ajax({
+    type: 'POST',
+    url: '/pets',
+    data: requestObject,
+    //success - getPets
+    success: getPets
+  });
+  //clear input fields
+  $('#petName').val('');
+  $('#color').val('');
+  $('#breed').val('');
+};
 
 //get call for pets table
 var getPets = function() {
@@ -36,6 +62,7 @@ var getPets = function() {
 //fills DOM with items from DB
 function populateTable(arr) {
   $('#content').empty();
+  $('#ownerName').empty();
   //loop through array and append to DOM
   for (var i = 0; i < arr.length; i++) {
     //put in table

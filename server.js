@@ -57,7 +57,7 @@ app.get('/pets', function(req, res) {
 });
 
 //post stuff
-app.post('/pets', function(req, res) {
+app.post('/owner', function(req, res) {
   pool.connect(function(err, connection, done) {
     if (err) {
       console.log('error');
