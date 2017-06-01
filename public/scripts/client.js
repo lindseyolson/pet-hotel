@@ -49,6 +49,6 @@ function populateTable(arr) {
     $tableRow.append('<td> <button id="checkInOut">In</button></td>');
     $('table').append($tableRow);
     //add owner name to dropdown
-    $('#ownerName').append('<option>' + arr[i].owner_first_name + ' ' + arr[i].owner_last_name + '</option>')
+    $('#ownerName').append('<option>' + arr[i].owner_first_name + ' ' + arr[i].owner_last_name + '</option>');
   } //end loop
 } //end populateTable
