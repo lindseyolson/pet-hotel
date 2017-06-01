@@ -43,8 +43,15 @@ app.get('/pets', function(req, res) {
       res.sendStatus(400);
     } else {
       console.log('connected to db');
-      done();
-      res.sendStatus(200);
+      var allPets = [];
+      var resultSet = connection.query('SELECT * FROM pets');
+      resultSet.on('row', function(row) {
+        allPets.push(row);
+      });
+      resultSet.on('end', function() {
+        done();
+        res.send(allPets);
+      });
     }
   });
 });
