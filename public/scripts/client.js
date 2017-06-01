@@ -35,7 +35,7 @@ var getPets = function() {
 
 //fills DOM with items from DB
 function populateTable(arr) {
-  $('table>#petRow').remove();
+  $('#content').empty();
   //loop through array and append to DOM
   for (var i = 0; i < arr.length; i++) {
     //put in table
@@ -47,7 +47,7 @@ function populateTable(arr) {
     $tableRow.append('<td> <button id="updateButton">Go</button></td>');
     $tableRow.append('<td> <button id="deleteButton">X</button></td>');
     $tableRow.append('<td> <button id="checkInOut">In</button></td>');
-    $('table').append($tableRow);
+    $('#content').append($tableRow);
     //add owner name to dropdown
     $('#ownerName').append('<option>' + arr[i].owner_first_name + ' ' + arr[i].owner_last_name + '</option>');
   } //end loop

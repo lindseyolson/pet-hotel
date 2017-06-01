@@ -55,3 +55,20 @@ app.get('/pets', function(req, res) {
     }
   });
 });
+
+//post stuff
+app.post('/pets', function(req, res) {
+  pool.connect(function(err, connection, done) {
+    if (err) {
+      console.log('error');
+      done();
+      res.sendStatus(400);
+    } else {
+      connection.query('INSERT INTO pets (owner_first_name, owner_last_name) VALUES ($1, $2)', [req.body.firstName, req.body.lastName]);
+      done();
+      res.sendStatus(201);
+    }
+  });
+  console.log(req.body);
+
+});
