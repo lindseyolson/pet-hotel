@@ -8,6 +8,16 @@ var pg = require('pg');
 //global
 var port = 7575;
 
+var config = {
+  database: 'omega',
+  host: 'localhost',
+  port: 5432,
+  max: 20
+};
+
+//create new pool using config
+var pool = new pg.Pool(config);
+
 //uses
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({
@@ -22,4 +32,19 @@ app.listen(port, function() {
 //base url
 app.get('/', function(req, res) {
   res.sendFile(path.resolve('views/index.html'));
+});
+
+app.get('/pets', function(req, res) {
+  console.log('get hit to /pets');
+  pool.connect(function(err, connection, done) {
+    if (err) {
+      console.log('error');
+      done();
+      res.sendStatus(400);
+    } else {
+      console.log('connected to db');
+      done();
+      res.sendStatus(200);
+    }
+  });
 });
