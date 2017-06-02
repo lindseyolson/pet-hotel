@@ -6,41 +6,53 @@
   <title>Pet Hotel</title>
   <script src="vendors/jquery-3.2.1.min.js" charset="utf-8"></script>
   <script src="scripts/client.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
-  <h1>Owner and Pets</h1>
-  <h2>Owner Registration</h2>
-  <label for="firstName">First Name:</label>
-  <input type="text" placeholder="first name" id="firstName" />
-  <label for="lastName">Last Name:</label>
-  <input type="text" placeholder="last name" id="lastName" />
-  <button type="button" name="button" id="registerButton">Register</button>
-  <h2>Pets</h2>
-  <label for=""></label>
-  <select id="ownerName">
-  </select>
-  <label for="petName">Pet Name:</label>
-  <input type="text" placeholder="pet name" id="petName" />
-  <label for="color">Color:</label>
-  <input type="text" placeholder="color" id="color" />
-  <label for="breed">Breed:</label>
-  <input type="text" placeholder="breed" id="breed" />
-  <button type="button" name="button" id="addPetButton">Add</button>
+  <h1>Pet Hotel</h1>
 
-  <table>
-    <tr class="headerRow">
-      <th>Owner</th>
-      <th>Pet</th>
-      <th>Breed</th>
-      <th>Color</th>
-      <th>Update</th>
-      <th>Delete</th>
-      <th>Check In/Out</th>
-    </tr>
-    <tbody id='content'>
-    </tbody>
-  </table>
+  <div class="section">
+    <h2>Owner Registration</h2>
+    <label for="firstName">First Name:</label>
+    <input type="text" placeholder="first name" id="firstName" />
+    <label for="lastName">Last Name:</label>
+    <input type="text" placeholder="last name" id="lastName" />
+    <br>
+    <button type="button" name="button" id="registerButton" class="headerButton">Register</button>
+  </div>
+
+  <div class="section">
+    <h2>Pets</h2>
+    <label for=""></label>
+    <select id="ownerName">
+    </select>
+    <label for="petName">Pet Name:</label>
+    <input type="text" placeholder="pet name" id="petName" />
+    <label for="color">Color:</label>
+    <input type="text" placeholder="color" id="color" />
+    <label for="breed">Breed:</label>
+    <input type="text" placeholder="breed" id="breed" />
+    <br>
+    <button type="button" name="button" id="addPetButton" class="headerButton">Add</button>
+  </div>
+
+  <div class="table">
+    <table>
+      <tr class="headerRow">
+        <th>Owner</th>
+        <th>Pet</th>
+        <th>Breed</th>
+        <th>Color</th>
+        <th>Update</th>
+        <th>Delete</th>
+        <th>Check In/Out</th>
+      </tr>
+      <tbody id='content'>
+      </tbody>
+    </table>
+  </div>
+
 
 
 </body>

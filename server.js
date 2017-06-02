@@ -72,3 +72,18 @@ app.post('/owner', function(req, res) {
   console.log(req.body);
 
 });
+
+app.post('/pets', function(req, res) {
+  pool.connect(function(err, connection, done) {
+    if (err) {
+      done();
+      res.sendStatus(400);
+    } else {
+      var ownerName = req.body.ownerName.split(' ');
+      connection.query("UPDATE pets SET pet_name = '" + req.body.petName + "', breed = '" + req.body.breed + "', color = '" + req.body.color + "' WHERE owner_first_name = '" + ownerName[0] + "'");
+      // connection.query("INSERT INTO pets (owner_first_name) VALUES ('Hogan')");
+      done();
+      res.sendStatus(201);
+    }
+  });
+});
