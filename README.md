@@ -13,3 +13,5 @@ Technology used: HTML, CSS, JavaScript, jQuery, Node.js, Express & SQL.
 
 ### Authors
 Lindsey Olson, Hogan McDonald & Helena Black.
+
+###### 6/2/2017
